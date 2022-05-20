@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}Quotes{% endblock%}
+{% block username %}{{ username }}{% endblock%}
+
+{% block main %}
+
+<form action="/quoted" method="get">
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-3">
+            <p name="symbol" class="lead">Name of the Stock: {{ symbol_lookup.name }}</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <p name="symbol" class="lead">Current Price per Share: {{ symbol_lookup.price }}</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <p name="symbol" class="lead">Ticker Symbol: {{ symbol_lookup.symbol }}</p>
+        </div>
+    </div>
+</form>
+{% endblock %}

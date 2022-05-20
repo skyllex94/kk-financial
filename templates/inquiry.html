@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}Purchased{% endblock%}
+{% block username %}{{ username }}{% endblock%}
+
+{% block main %}
+
+<form action="/inquiry" method="post">
+    <div class="row justify-content-center">
+        <div class="col-md-2 mb-3">
+            <p name="symbol" class="lead">Name of the Stock: {{ symbol_lookup.name }} / Symbol {{ symbol_lookup.symbol
+                }}</p>
+        </div>
+        <div class="col-md-2 mb-3">
+            <p name="symbol" class="lead">Price per Share: {{ symbol_lookup.price }}</p>
+        </div>
+        <div class="col-md-2 mb-3">
+            <p name="symbol" class="lead">Shares Purchased/Sold: {{ shares }}</p>
+        </div>
+        <div class="col-md-2 mb-3">
+            <p name="symbol" class="lead">Total Amount: {{ total_amount }}</p>
+        </div>
+        <div class="col-md-2 mb-3">
+            <p name="symbol" class="lead">Cash: {{ cash_left }}</p>
+        </div>
+        <div class="col-md-2 mb-3">
+            <p name="symbol" class="lead">Date: {{ time }}</p>
+        </div>
+    </div>
+</form>
+{% endblock %}

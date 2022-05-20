@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}Portfolio{% endblock%}
+{% block username %}{{ username }}{% endblock%}
+
+{% block main %}
+
+<form action="/history" method="post">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h3 class="mb-3">Stock Portfolio</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Symbol</th>
+                        <th>Shares</th>
+                        <th>Current Price</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in positions %}
+                    <tr>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.symbol }}</td>
+                        <td>{{ row.shares }}</td>
+                        <td>${{ '%0.2f'| format(((row.cur_price))|float) }}</td>
+                        <td>${{ '%0.2f'| format(((row.total_price))|float) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Cash</td>
+                        <td>${{ '%0.2f'| format((cash.cash)|float) }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>TOTAL</td>
+                        <td>${{'%0.2f'| format((cash.cash + total_price)|float) }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</form>
+{% endblock %}

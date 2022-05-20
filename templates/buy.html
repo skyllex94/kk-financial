@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}Quotes{% endblock%}
+{% block username %}{{ username }}{% endblock%}
+
+{% block main %}
+
+<form action="/buy" method="post">
+    <div class="row mb-3 justify-content-center">
+        <div class="col-md-3 mb-3">
+            <input class="form-control mx-auto w-100" autocorrect="off" autofocus name="symbol"
+                placeholder="Ticker Symbol to Search" type="text">
+        </div>
+        <div class="col-md-2 mb-3">
+            <input class="form-control mx-auto w-100" name="shares" placeholder="Number of Shares">
+        </div>
+        <div class="col-md-2 mb-3">
+            <button class="btn btn-outline-dark w-100" type="submit">Buy</button>
+        </div>
+    </div>
+
+</form>
+{% endblock %}
